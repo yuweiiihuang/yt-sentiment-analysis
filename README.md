@@ -6,6 +6,33 @@ TODO
 
 TODO
 
+### naive-bayes
+
+```
+Accuracy: 0.6768
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.8824    0.1285    0.2243       467
+           1     0.6818    0.2432    0.3586       925
+           2     0.6721    0.9649    0.7923      2281
+
+    accuracy                         0.6768      3673
+   macro avg     0.7454    0.4456    0.4584      3673
+weighted avg     0.7013    0.6768    0.6108      3673
+
+One-vs-Rest AUC:
+AUC for Negative (0): 0.8463
+AUC for Neutral (1): 0.8193
+AUC for Positive (2): 0.8585
+
+Confusion Matrix (rows = true, cols = predicted):
+[[  60   28  379]
+ [   5  225  695]
+ [   3   77 2201]]
+```
+
 ### lstm
 
 ```
