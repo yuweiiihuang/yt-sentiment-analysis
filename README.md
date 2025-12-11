@@ -9,28 +9,28 @@ TODO
 ### naive-bayes
 
 ```
-Accuracy: 0.6768
+Accuracy: 0.6817
 
 Classification Report:
               precision    recall  f1-score   support
 
-           0     0.8824    0.1285    0.2243       467
-           1     0.6818    0.2432    0.3586       925
-           2     0.6721    0.9649    0.7923      2281
+           0     0.3478    0.7216    0.4694       467
+           1     0.6308    0.3676    0.4645       925
+           2     0.8439    0.8010    0.8219      2281
 
-    accuracy                         0.6768      3673
-   macro avg     0.7454    0.4456    0.4584      3673
-weighted avg     0.7013    0.6768    0.6108      3673
+    accuracy                         0.6817      3673
+   macro avg     0.6075    0.6301    0.5852      3673
+weighted avg     0.7271    0.6817    0.6870      3673
 
 One-vs-Rest AUC:
-AUC for Negative (0): 0.8463
-AUC for Neutral (1): 0.8193
-AUC for Positive (2): 0.8585
+AUC for Negative (0): 0.8613
+AUC for Neutral (1): 0.8168
+AUC for Positive (2): 0.8695
 
 Confusion Matrix (rows = true, cols = predicted):
-[[  60   28  379]
- [   5  225  695]
- [   3   77 2201]]
+[[ 337   37   93]
+ [ 340  340  245]
+ [ 292  162 1827]]
 ```
 
 ### lstm
