@@ -37,29 +37,29 @@ Confusion Matrix (rows = true, cols = predicted):
 ### lstm
 
 ```
-Accuracy: 0.6493
+Accuracy: 0.7373
 
 Classification Report:
               precision    recall  f1-score   support
 
-    negative     0.3175    0.5867    0.4120       467
-     neutral     0.5145    0.5751    0.5431       925
-    positive     0.8891    0.6922    0.7784      2281
+    negative     0.4582    0.7152    0.5585       467
+     neutral     0.5831    0.6714    0.6241       925
+    positive     0.9329    0.7685    0.8428      2281
 
-    accuracy                         0.6493      3673
-   macro avg     0.5737    0.6180    0.5779      3673
-weighted avg     0.7221    0.6493    0.6726      3673
+    accuracy                         0.7373      3673
+   macro avg     0.6581    0.7184    0.6751      3673
+weighted avg     0.7845    0.7373    0.7516      3673
 
 
 One-vs-Rest AUC:
-AUC for negative (0): 0.7987
-AUC for neutral (1): 0.7860
-AUC for positive (2): 0.8498
+AUC for negative (0): 0.9055
+AUC for neutral (1): 0.8674
+AUC for positive (2): 0.9128
 
 Confusion Matrix (rows = true, cols = predicted):
-[[ 274  123   70]
- [ 266  532  127]
- [ 323  379 1579]]
+[[ 334   97   36]
+ [ 214  621   90]
+ [ 181  347 1753]]
 ```
 
 ### bert-fine-tuning
