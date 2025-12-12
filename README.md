@@ -65,18 +65,18 @@ Confusion Matrix (rows = true, cols = predicted):
 ### bert-fine-tuning
 
 ```
-Test Accuracy: 0.82
+Accuracy: 0.8130
 
-Test Set Classification Report:
+Classification Report:
               precision    recall  f1-score   support
 
-    Negative       0.70      0.68      0.69       467
-     Neutral       0.69      0.70      0.69       925
-    Positive       0.90      0.90      0.90      2281
+    negative     0.6576    0.7281    0.6911       467
+     neutral     0.6650    0.7254    0.6939       925
+    positive     0.9199    0.8658    0.8921      2281
 
-    accuracy                           0.82      3673
-   macro avg       0.76      0.76      0.76      3673
-weighted avg       0.82      0.82      0.82      3673
+    accuracy                         0.8130      3673
+   macro avg     0.7475    0.7731    0.7590      3673
+weighted avg     0.8224    0.8130    0.8166      3673
 ```
 
 ## References
