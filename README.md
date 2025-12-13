@@ -1,94 +1,48 @@
 # YouTube Comments Sentiment Analysis
 
-TODO
+## Environment Setup
+
+- Python 3.11 recommended.
+- Create and activate a virtual environment:
+  - `python -m venv .venv`
+  - `source .venv/bin/activate` or `.venv\Scripts\activate` (Windows)
+- Install dependencies: `pip install -r requirements.txt`
+
+## Prepare Dataset
+
+1. Raw CSV expected at `dataset/raw/YoutubeCommentsDataSet.csv`.
+2. Split into train/test: `python split_dataset.py`
+  - Outputs go to `dataset/processed/train.csv` and `dataset/processed/test.csv`.
+
+## How to Run
+
+- Start Jupyter: `jupyter notebook`
+- Notebooks to execute:
+  - `naive-bayes.ipynb`: TF-IDF + Naive Bayes with randomized search; saves predictions to `outputs/naive-bayes/`.
+  - `lstm.ipynb`: LSTM with pretrained GloVe Twitter embeddings from `dataset/embeddings/`; saves to `outputs/lstm/`.
+  - `bert-fine-tuning.ipynb`: Fine-tunes multilingual BERT; GPU recommended; saves to `outputs/bert/`.
+
+## How to Reproduce
+
+1. Run the three model notebooks (Run All). Each notebook sets seeds and writes test predictions/metrics under its `outputs/<model>/` folder.
+2. Open `aggregate_outputs.ipynb` and Run All to recompute the metrics table and plots from the generated outputs.
 
 ## Results
 
-TODO
+| Model               |     Accuracy    |    Macro F1     |    Macro AUC    |
+|---------------------|-----------------|-----------------|-----------------|
+| Naive Bayes         | 0.7030 ± 0.0023 | 0.6182 ± 0.0033 | 0.8522 ± 0.0037 |
+| LSTM                | 0.7531 ± 0.0049 | 0.6885 ± 0.0051 | 0.8937 ± 0.0025 |
+| BERT Fine-Tuning    | 0.8134 ± 0.0029 | 0.7598 ± 0.0038 | 0.9342 ± 0.0009 |
 
-### naive-bayes
-
-```
-Accuracy: 0.7030
-
-Classification Report:
-               precision    recall  f1-score   support
-
-    negative     0.4081    0.6895    0.5127       467
-     neutral     0.6277    0.4411    0.5181       925
-    positive     0.8290    0.8119    0.8204      2281
-
-    accuracy                         0.7030      3673
-   macro avg     0.6216    0.6475    0.6171      3673
-weighted avg     0.7248    0.7030    0.7051      3673
-
-
-One-vs-Rest AUC:
-AUC for Negative (0): 0.8623
-AUC for Neutral (1): 0.8152
-AUC for Positive (2): 0.8631
-
-Confusion Matrix (rows = true, cols = predicted):
-[[ 322   48   97]
- [ 232  408  285]
- [ 235  194 1852]]
-```
-
-### lstm
-
-```
-Accuracy: 0.7493
-
-Classification Report:
-              precision    recall  f1-score   support
-
-    negative     0.4967    0.6403    0.5594       467
-     neutral     0.5822    0.6854    0.6296       925
-    positive     0.9178    0.7975    0.8534      2281
-
-    accuracy                         0.7493      3673
-   macro avg     0.6655    0.7077    0.6808      3673
-weighted avg     0.7797    0.7493    0.7597      3673
-
-
-One-vs-Rest AUC:
-AUC for negative (0): 0.8918
-AUC for neutral (1): 0.8630
-AUC for positive (2): 0.9134
-
-Confusion Matrix (rows = true, cols = predicted):
-[[ 299  115   53]
- [ 181  634  110]
- [ 122  340 1819]]
-```
-
-### bert-fine-tuning
-
-```
-Accuracy: 0.8130
-
-Classification Report:
-              precision    recall  f1-score   support
-
-    negative     0.6576    0.7281    0.6911       467
-     neutral     0.6650    0.7254    0.6939       925
-    positive     0.9199    0.8658    0.8921      2281
-
-    accuracy                         0.8130      3673
-   macro avg     0.7475    0.7731    0.7590      3673
-weighted avg     0.8224    0.8130    0.8166      3673
-```
+More charts and analysis can be found in the [notebook](aggregate_outputs.ipynb).
 
 ## References
 
-- Dataset\
-[atifaliak/youtube-comments-dataset](https://www.kaggle.com/datasets/atifaliak/youtube-comments-dataset)
+- Dataset: [atifaliak/youtube-comments-dataset](https://www.kaggle.com/datasets/atifaliak/youtube-comments-dataset)
 
-- Naive Bayes\
-[atifaliak/sentiment-analysis-on-youtube-comments](https://www.kaggle.com/code/atifaliak/sentiment-analysis-on-youtube-comments)
+- Naive Bayes: [atifaliak/sentiment-analysis-on-youtube-comments](https://www.kaggle.com/code/atifaliak/sentiment-analysis-on-youtube-comments)
 
-- LSTM\
-[muhammedaliyilmazz/lstm-based-sentiment-analysis-for-youtube-data](https://www.kaggle.com/code/muhammedaliyilmazz/lstm-based-sentiment-analysis-for-youtube-data)
+- LSTM: [muhammedaliyilmazz/lstm-based-sentiment-analysis-for-youtube-data](https://www.kaggle.com/code/muhammedaliyilmazz/lstm-based-sentiment-analysis-for-youtube-data)
 
-- BERT-fine-tuning\
-[chriskhanhtran/bert-for-sentiment-analysis](https://github.com/chriskhanhtran/bert-for-sentiment-analysis?tab=readme-ov-file)
+- BERT-fine-tuning: [chriskhanhtran/bert-for-sentiment-analysis](https://github.com/chriskhanhtran/bert-for-sentiment-analysis?tab=readme-ov-file)
